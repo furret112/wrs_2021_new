@@ -9,9 +9,9 @@ BAUD_RATES = 115200
 
 list_ser = []
 
-def recieve_data():      
-    try: 
-        while True:
+def recieve_data():       
+        while not rospy.is_shutdown():
+
             while ser.in_waiting:          
                 list_ser.append(ser.read(1))
             
@@ -22,9 +22,7 @@ def recieve_data():
                     del list_ser [:]
                 else:
                     del list_ser [:]
-            
-
-    except KeyboardInterrupt:
+           
         ser.close()    
         print('good bye!')
 
@@ -43,7 +41,7 @@ if __name__ == "__main__":
 
     port_name = rospy.get_param('~port','/dev/ttyUSB0')
     #baud = int(rospy.get_param('~baud','57600'))
-    print("try to connect with {port_name}")
+    print("try to connect with",port_name)
 
     ser = serial.Serial(port_name, BAUD_RATES) 
     print("connection succeeded!")  
