@@ -13,7 +13,7 @@ In nodeMCU_python/src/esp_to_python
 Drag "nodeMCU_python" to your {your_workspace}/src 
 
 In your workspace
-1. source devel/setup.bash
-2. roslaunch nodeMCU_python run_esp.launch port:=/dev/ttyUSB0
+1. $source devel/setup.bash
+2. $roslaunch nodeMCU_python run_esp.launch port:=/dev/ttyUSB0
 
 PS, "port" is default to /dev/ttyUSB0 
